@@ -1,0 +1,3 @@
+guard 'erb', :input => 'app/views/index.html.erb', :output => "public/index.html" do
+  watch (%r{app/views/index.html.erb})
+end
