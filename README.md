@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-Please read [Guard usage doc](https://github.com/guard/guard#readme).
+Nested erb support via the import method
+```eruby
+ <%= import('erbfile.html.erb', { foo: bar }) %>
+```
+For guard usage please read [Guard usage doc](https://github.com/guard/guard#readme).
 
 ## Guardfile
 

@@ -1,9 +1,11 @@
 require 'guard'
 require 'guard/guard'
 require 'erb'
+require 'struct_erb'
 
 module Guard
   class Erb < Guard
+
     def initialize(watchers=[], options={})
       @input  = options[:input]
       @output = options[:output]
@@ -27,9 +29,9 @@ module Guard
     end
 
     private
-    def import(file)
-      UI.info "importing erb file #{file}"
-      ::ERB.new(File.read(file)).result(binding)
+
+    def import(file, locals={})
+      ::StructErb.new(locals).render(File.read(file))
     end
 
     def compile
@@ -47,4 +49,5 @@ module Guard
       end
     end
   end
+
 end
